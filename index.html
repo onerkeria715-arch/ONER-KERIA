@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONER / KERIA 應援領取查詢</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Microsoft JhengHei", "Apple LiGothic Medium", sans-serif;
+            background: url('1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* 改成深色磨砂感框框 */
+        .container {
+            background: rgba(30, 30, 30, 0.85); /* 深色背景 */
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            text-align: center;
+            max-width: 450px;
+            width: 85%;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff; /* 文字改為白色 */
+        }
+
+        /* 標題樣式調整 */
+        h2 { 
+            color: #ff4d4d; /* T1 紅色感 */
+            margin-bottom: 15px; 
+            font-size: 1.4rem; 
+            line-height: 1.4;
+            letter-spacing: 1px;
+        }
+
+        p { color: #cccccc; margin-bottom: 25px; font-size: 0.95rem; }
+
+        input {
+            width: 85%;
+            padding: 14px;
+            margin-bottom: 20px;
+            border: 1px solid #444;
+            border-radius: 12px;
+            outline: none;
+            font-size: 16px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        input::placeholder { color: #888; }
+
+        /* 按鈕配色調整 */
+        button {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #ff4d4d 0%, #b30000 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: 0.3s;
+            width: 70%;
+            box-shadow: 0 4px 15px rgba(255, 77, 77, 0.3);
+        }
+
+        button:hover { 
+            background: linear-gradient(135deg, #ff6666 0%, #cc0000 100%);
+            transform: translateY(-2px); 
+        }
+
+        #result {
+            margin-top: 30px;
+            font-weight: bold;
+            min-height: 70px;
+            line-height: 1.6;
+        }
+
+        /* 編號顯示更亮眼 */
+        .number-display {
+            font-size: 2.5rem;
+            display: block;
+            margin-top: 10px;
+            color: #ffd700; /* 金色編號，更有獲獎/應援感 */
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .error-msg { color: #ff8888; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>ONER/KERIA證件套鑰匙圈應援<br>主場日領取編號</h2>
+    <p>請輸入您的 Threads ID 進行查詢</p>
+    
+    <input type="text" id="userInput" placeholder="例如: vickyt1ok">
+    <br>
+    <button onclick="checkID()">立即查詢</button>
+    <div id="result"></div>
+</div>
+
+<script>
+    const dataList = {
+        "vickyt1ok": "V01",
+        "ciao__charlotte": "K01",
+        "huii_yunn": "K02",
+        "niozerodis": "K03",
+        "suuuuuryu": "K04",
+        "sauce_pan260": "K05",
+        "Evelyn.0225": "K06",
+        "yui_xx.x": "K07",
+        "plumakerrr": "K08",
+        "rrrrita.506": "K09",
+        "joy0203_denny1009": "K10",
+        "rabbit.hh_": "K11",
+        "n.mi__": "K12",
+        "soayoooo": "K13",
+        "morimoriimo": "K14",
+        "ivy_.10.05": "K15",
+        "_erehydobon": "K16"
+    };
+
+    function checkID() {
+        const input = document.getElementById('userInput').value.trim();
+        const resultDiv = document.getElementById('result');
+        
+        if (input === "") {
+            resultDiv.innerHTML = "<span class='error-msg'>請先輸入 ID 唷！</span>";
+            return;
+        }
+
+        const foundKey = Object.keys(dataList).find(key => key.toLowerCase() === input.toLowerCase());
+
+        if (foundKey) {
+            resultDiv.innerHTML = `您的領取編號是：<br><span class="number-display">${dataList[foundKey]}</span>`;
+        } else {
+            resultDiv.innerHTML = "<span class='error-msg'>查無此 ID<br>請檢查拼字或底線數量是否正確！</span>";
+        }
+    }
+</script>
+
+</body>
+</html>
