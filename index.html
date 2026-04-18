@@ -15,23 +15,22 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            overflow: hidden; /* 防止手機出現捲軸 */
+            overflow: hidden;
         }
 
         .container {
             background: rgba(30, 30, 30, 0.85);
-            padding: 30px 20px; /* 縮小內距 */
+            padding: 30px 20px;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             text-align: center;
-            max-width: 320px; /* 這裡縮小了框框寬度 */
+            max-width: 320px;
             width: 85%;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             color: #ffffff;
         }
 
-        /* 讓手機版整體稍微再縮小一點點 */
         @media (max-width: 480px) {
             .container {
                 transform: scale(0.9); 
@@ -41,7 +40,7 @@
         h2 { 
             color: #ff4d4d;
             margin-bottom: 10px; 
-            font-size: 1.2rem; /* 標題字體縮小 */
+            font-size: 1.2rem;
             line-height: 1.4;
         }
 
@@ -92,7 +91,7 @@
 <body>
 
 <div class="container">
-    <h2>ONER/KERIA證件套鑰匙圈應援<br>主場日領取編號</h2>
+    <h2>ONER/KERIA證件套鑰匙圈<br>應援主場日領取編號</h2>
     <p>請輸入您的 Threads ID 查詢</p>
     
     <input type="text" id="userInput" placeholder="例如: vickyt1ok">
@@ -103,7 +102,10 @@
 
 <script>
     const dataList = {
-        "vickyt1ok": "V01",
+        // 範例
+        "vickyt1ok": "O01",
+        
+        // K系列名單
         "ciao__charlotte": "K01",
         "huii_yunn": "K02",
         "niozerodis": "K03",
@@ -119,7 +121,27 @@
         "soayoooo": "K13",
         "morimoriimo": "K14",
         "ivy_.10.05": "K15",
-        "_erehydobon": "K16"
+        "_erehydobon": "K16",
+
+        // O系列名單 (已修正為 O + 數字)
+        "ru8_96": "O02",
+        "cc7_7__t1": "O03",
+        "kchuang13": "O04",
+        "yw.life": "O05",
+        "k_yfo_": "O06",
+        "b_oom1111": "O07",
+        "miya1328": "O08",
+        "tientsui": "O09",
+        "ritahcy__0912": "O10",
+        "Dreykam": "O11",
+        "suga.niya": "O12",
+        "25t1_ting": "O13",
+        "nana0330__": "O14",
+        "zorwa1116": "O15",
+        "Ttoooooooloomo": "O16",
+        "plaeneter_0.55_und_0.50": "O17",
+        "strayed_killerwhale": "O18",
+        "alrinn99": "O19"
     };
 
     function checkID() {
